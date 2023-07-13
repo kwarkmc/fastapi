@@ -38,7 +38,7 @@ pipeline {
 
               sh "docker tag jenkins-pipeline_web:latest kwarkmc/jenkins-app:${BUILD_NUMBER}"
 
-               sh "docker login -u kwarkmc -p dckr_pat_lB2VDQbawZIqrV-LWzi9htskGsI"
+               sh "docker login -u kwarkmc -p PASSWORD"
 
                sh "docker push kwarkmc/jenkins-app:${BUILD_NUMBER}"
 
