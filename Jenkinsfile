@@ -40,9 +40,9 @@ pipeline {
 
             credentialsId: 'docker-hub', 
 
-            usernameVariable: 'DOCKER_USER_ID', 
+            usernameVariable: 'kwarkmc', 
 
-            passwordVariable: 'DOCKER_USER_PASSWORD'
+            passwordVariable: 'dckr_pat_lB2VDQbawZIqrV-LWzi9htskGsI'
 
             ]]) {
 
