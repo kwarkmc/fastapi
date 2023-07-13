@@ -36,23 +36,11 @@ pipeline {
 
          steps {
 
-            withCredentials([[$class: 'UsernamePasswordMultiBinding',
-
-            credentialsId: 'docker-hub', 
-
-            usernameVariable: 'kwarkmc', 
-
-            passwordVariable: 'dckr_pat_lB2VDQbawZIqrV-LWzi9htskGsI'
-
-            ]]) {
-
-               sh "docker tag jenkins-pipeline_web:latest kwarkmc/jenkins-app:${BUILD_NUMBER}"
+              sh "docker tag jenkins-pipeline_web:latest kwarkmc/jenkins-app:${BUILD_NUMBER}"
 
                sh "docker login -u kwarkmc -p dckr_pat_lB2VDQbawZIqrV-LWzi9htskGsI"
 
-               sh "docker push $kwarkmc/jenkins-app:${BUILD_NUMBER}"
-
-            }
+               sh "docker push kwarkmc/jenkins-app:${BUILD_NUMBER}"
 
          }
 
