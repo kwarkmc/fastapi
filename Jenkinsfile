@@ -12,20 +12,6 @@ pipeline {
 
    stages {
 
-      stage("init") {
-
-         steps {
-
-            script {
-
-               gv = load "script.groovy"
-
-            }
-
-         }
-
-      }
-
       stage("Checkout") {
 
          steps {
@@ -41,30 +27,6 @@ pipeline {
          steps {
 
             sh 'docker-compose build web'
-
-         }
-
-      }
-
-      stage("test") {
-
-         when {
-
-            expression {
-
-               params.executeTests
-
-            }
-
-         }
-
-         steps {
-
-            script {
-
-               gv.testApp()
-
-            }
 
          }
 
@@ -88,7 +50,7 @@ pipeline {
 
                sh "docker login -u kwarkmc -p dckr_pat_lB2VDQbawZIqrV-LWzi9htskGsI"
 
-               sh "docker push kwarkmc/jenkins-app:${BUILD_NUMBER}"
+               sh "docker push $kwarkmc/jenkins-app:${BUILD_NUMBER}"
 
             }
 
